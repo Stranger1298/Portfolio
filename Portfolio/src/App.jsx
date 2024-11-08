@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import logo from './assets/profile-pic.png';
 import './App.css';
 import arrow from './assets/arrow.png';
@@ -11,11 +11,41 @@ function App() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [, setFormStatus] = useState('');
 
-  // Scroll to top on component mount
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = { name, email, message };
+
+    try {
+      const response = await fetch(
+        'https://formsubmit.co/ajax/amanraj89969@gmail.com',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setFormStatus('Thank you! Your message has been sent.');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        setFormStatus(`Error: ${result.message}`);
+      }
+    // eslint-disable-next-line no-unused-vars
+    } catch (error) {
+      setFormStatus('Something went wrong. Please try again.');
+    }
+  };
 
   return (
     <div className="bg-slate-950 min-h-screen text-white flex flex-col items-center justify-center">
@@ -88,10 +118,12 @@ function App() {
             </a>
           </div>
           
+          
           <form 
             action="https://formsubmit.co/amanraj89969@gmail.com" 
             method="POST" 
             className="bg-white p-6 rounded-lg shadow-lg mt-8 max-w-lg mx-auto"
+            onSubmit={handleSubmit}
           >
             <input
               type="text"
