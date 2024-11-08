@@ -1,0 +1,45 @@
+/* Project.css */
+
+/* General styles for the project container */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center the project items */
+}
+
+/* Styling for individual project cards */
+.project-card {
+  background-color: #c792fce3; /* White background */
+  padding: 20px;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  max-width: 300px; /* Max width for cards */
+  margin: 20px; /* Margin around each card */
+  text-align: center; /* Center text */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for project cards */
+.project-card:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: #1e3a8a; /* Dark blue */
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #3b82f6; /* Lighter blue on hover */
+}
+
+.buttons {
+  margin-top: 15px;
+}
