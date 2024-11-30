@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import logo from './assets/profile-pic.png';
-import './App.css';
 import arrow from './assets/arrow.png';
 import ellipse from './assets/ellipse.png';
 import skills from './assets/Skills.png';
